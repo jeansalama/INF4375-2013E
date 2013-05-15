@@ -5,6 +5,12 @@
         <script type="text/javascript">
             function executer() {
                 document.getElementById('title').innerHTML = 'Labo 01';
+
+                document.getElementById('vider-tableau').onclick = function() {
+                    setTimeout(function() {
+                        document.getElementsByTagName('div')[0].innerHTML = "";
+                    }, 1000);
+                };
             }
 
             function remplir() {
@@ -42,6 +48,7 @@
                 document.getElementsByTagName('div')[0].style.display = 'block';
             }
 
+
          </script>
     </head>
     <body onload="executer()">
@@ -52,7 +59,8 @@
             <input type="text" id="valeurs" /><input type="button" onclick="remplir_avec_valeurs(document.getElementById('valeurs').value);" value="Remplir avec les valeurs" />
         </p>
 
-        <div style="display:none;" />
+        <div style="display:none;"></div>
+        <a href="javascript:void(0);" id="vider-tableau">Vider le tableau</a>
 
     </body>
 </html>
