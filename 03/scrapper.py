@@ -23,7 +23,7 @@ for cours in data.cssselect("ul.liste li"):
     liste_cours[sigle] = {'nom': nom, 'url': url, 'offert': True, 'prerequis': prerequis}
     print sigle, prerequis
     if "Ce cours n'est pas offer" in data_cours:
-        liste_cours[sigle]['offer'] = False
+        liste_cours[sigle]['offert'] = False
 
 with open('cours_automne_2013.json', 'wb') as fp:
     json.dump(liste_cours, fp)
