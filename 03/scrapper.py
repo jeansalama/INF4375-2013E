@@ -8,19 +8,24 @@ f = urllib2.urlopen("%sPKG_WPUB.AFFICHE_CHEMINEMENT?P_prog=7316" % base_url)
 data = lxml.html.fromstring(f.read())
 f.close()
 liste_cours = {}
-for cour in data.cssselect("ul.liste a"):
-  sigle = cour.text_content().strip()
-  url = "%s%s&an_ses2=Automne+2013" % (base_url, cour.attrib['href'])
-  f = urllib2.urlopen(url)
-  data_cours = f.read()
-  nom = re.sub(sigle, '', lxml.html.fromstring(data_cours).cssselect("p.rtitredepage")[0].text_content().strip()).strip()
+for cours in data.cssselect("ul.liste li"):
+    cour = cours.cssselect("a")[0]
+    prerequis = []
+    for p in cours.cssselect("a")[1:]:
+        prerequis.append(p.text_content().strip())
 
-  if "Ce cours n'est pas offer" in data_cours:
-      liste_cours[sigle] = {'nom': nom, 'url': url, 'offert': False}
-  else:
-      liste_cours[sigle] = {'nom': nom, 'url': url, 'offert': True}
+    sigle = cour.text_content().strip()
+    url = "%s%s&an_ses2=Automne+2013" % (base_url, cour.attrib['href'])
+    f = urllib2.urlopen(url)
+    data_cours = f.read()
+    nom = re.sub(sigle, '', lxml.html.fromstring(data_cours).cssselect("p.rtitredepage")[0].text_content().strip()).strip()
+
+    liste_cours[sigle] = {'nom': nom, 'url': url, 'offert': True, 'prerequis': prerequis}
+    print sigle, prerequis
+    if "Ce cours n'est pas offer" in data_cours:
+        liste_cours[sigle]['offer'] = False
 
 with open('cours_automne_2013.json', 'wb') as fp:
-  json.dump(liste_cours, fp)
+    json.dump(liste_cours, fp)
 
 
