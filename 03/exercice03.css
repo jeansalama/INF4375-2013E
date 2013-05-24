@@ -17,10 +17,7 @@ articlebox {
   width: 60%;
 }
 
-.black {
+p .black .bold {
   color: black;
-}
-
-.bold {
   font-weight: bold;
 }
