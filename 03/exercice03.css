@@ -1,4 +1,4 @@
-#articlebox {
+.articlebox {
   border: solid 1px lightgray;
   position: relative;
   min-height: 320px;
