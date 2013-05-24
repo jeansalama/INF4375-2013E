@@ -24,8 +24,3 @@ articlebox {
 .bold {
   font-weight: bold;
 }
-
-div > ul a.nav {
-  padding: 10px;
-  background: url('img/bullet.png');
-}
