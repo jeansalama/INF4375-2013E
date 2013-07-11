@@ -40,12 +40,15 @@ exports.findById = function(req, res) {
     /*
      * 0- Compléter la recherche par ID. On retourne qu'un seul objet.
      */
+
+    res.json('Non implémenté')
 };
 
 exports.findAll = function(req, res) {
     /*
      * 1- Compléter la recherche de tous les wiki
      */
+    res.json('Non implémenté')
 };
  
 exports.addWiki = function(req, res) {
@@ -54,6 +57,7 @@ exports.addWiki = function(req, res) {
     /*
      * 2- Compléter l'ajout de wiki
      */
+    res.json('Non implémenté')
 }
  
 exports.updateWiki = function(req, res) {
@@ -64,6 +68,7 @@ exports.updateWiki = function(req, res) {
     /*
      * 3- Compléter la mise à jour du wiki. La mise à jour ecrase tout le document.
      */
+    res.json('Non implémenté')
 }
  
 exports.deleteWiki = function(req, res) {
@@ -71,6 +76,7 @@ exports.deleteWiki = function(req, res) {
     /*
      * 4- Suppression d'un wiki
      */
+    res.json('Non implémenté')
 }
  
 var populateDB = function() {
