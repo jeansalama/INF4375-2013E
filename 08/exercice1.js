@@ -25,7 +25,7 @@ MongoClient.connect(format("mongodb://%s:%s/%s?w=1", host, port, database), func
          * pour insérer des documents. Il est possible d'ajouter plus d'un document en fournissant
          * une liste comme premier attribut.
          */
-        post.insert([{'a': 1}, {'a': 2}, {'a': 3}/* Mettre les 2 billets ici */], {safe: true}, function(err, doc) {
+        post.insert([/* Mettre les 2 billets ici */], {safe: true}, function(err, doc) {
             if(err) {
                 console.log("Erreur lors de l'ajout du billet");
                 throw err;
