@@ -112,7 +112,7 @@ MongoClient.connect(format("mongodb://%s:%s/%s?w=1", host, port, database), func
                         'date': new Date('May 10, 2013')
                     },
                 },
-                {'safe': true},
+                {'safe': true, 'new': true},
                 function(err, nouvel_objet) {
                     if(err) {
                         console.log('Impossible de modifier la date du billet');
